@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<title>Lumen Supply · Checkout</title>
+<style>
+  :root { --ink:#1d1b18; --muted:#7a746b; --line:#e7e1d6; --paper:#f6f2ea; --card:#fffdf8; --accent:#2f5d50; --err:#b3261e; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 "Segoe UI", system-ui, sans-serif; color:var(--ink); background:var(--paper); }
+  header { display:flex; align-items:center; justify-content:space-between; padding:22px 56px; border-bottom:1px solid var(--line); }
+  .logo { font:600 20px/1 Georgia, serif; letter-spacing:.02em; }
+  .logo b { color:var(--accent); }
+  nav { color:var(--muted); display:flex; gap:28px; font-size:14px; }
+  main { display:grid; grid-template-columns: 1.25fr .9fr; gap:40px; padding:44px 56px; max-width:1380px; }
+  h1 { font:500 34px/1.15 Georgia, serif; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 28px; }
+  .err { display:flex; gap:14px; align-items:flex-start; background:#fbecea; border:1px solid #efc7c2; color:var(--err);
+         padding:14px 18px; border-radius:10px; margin-bottom:26px; }
+  .err code { display:block; color:#7d1d17; font:13px/1.45 Consolas, monospace; margin-top:4px; }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--err); margin-top:6px; flex:none; }
+  fieldset { border:0; padding:0; margin:0 0 22px; }
+  legend { font-weight:600; margin-bottom:10px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  label { display:block; font-size:13px; color:var(--muted); margin-bottom:5px; }
+  input { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:var(--card); font:inherit; color:var(--ink); }
+  .card { overflow:hidden; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px; height:max-content; }
+  .item { display:grid; grid-template-columns:56px 1fr auto; gap:14px; align-items:center; padding:12px 0; border-bottom:1px solid var(--line); }
+  .thumb { width:56px; height:56px; border-radius:8px; background:linear-gradient(135deg,#d9cfbd,#b9ab92); }
+  .thumb.b { background:linear-gradient(135deg,#c8d4cc,#8fa79a); }
+  .item small { color:var(--muted); display:block; }
+  .sum { display:flex; justify-content:space-between; padding:8px 0; color:var(--muted); }
+  .total { display:flex; justify-content:space-between; padding:16px 0 4px; font-weight:600; font-size:18px; color:var(--ink); }
+  /* the bug: a leftover transform pushes the button past the card edge, and overflow:hidden clips it */
+  .pay { margin-top:18px; width:260px; white-space:nowrap; padding:15px 22px; border:0; border-radius:10px;
+         background:var(--accent); color:#fff; font:600 16px/1 "Segoe UI", sans-serif; transform:translateX(300px); }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Lumen <b>Supply</b></div>
+  <nav><span>Shop</span><span>Journal</span><span>Stores</span><span>Cart (2)</span></nav>
+</header>
+<main>
+  <section>
+    <h1>Checkout</h1>
+    <p class="sub">Step 2 of 3 · Payment</p>
+    <div class="err"><span class="dot"></span><div><strong>Payment could not be started.</strong>
+      <code>TypeError: Cannot read properties of undefined (reading 'amount')<br>&nbsp;&nbsp;at createIntent (checkout.js:142:31)</code></div></div>
+    <fieldset>
+      <legend>Contact</legend>
+      <div class="row"><div><label>Email</label><input value="sam@example.com"></div><div><label>Phone</label><input value="+32 470 00 00 00"></div></div>
+    </fieldset>
+    <fieldset>
+      <legend>Card</legend>
+      <div><label>Card number</label><input value="4242 4242 4242 4242"></div>
+      <div class="row" style="margin-top:14px"><div><label>Expiry</label><input value="08 / 29"></div><div><label>CVC</label><input value="123"></div></div>
+    </fieldset>
+  </section>
+  <aside class="card">
+    <div class="item"><span class="thumb"></span><div>Linen table lamp<small>Sand · 1 ×</small></div><div>€ 64.00</div></div>
+    <div class="item"><span class="thumb b"></span><div>Ceramic shade<small>Sage · 1 ×</small></div><div>€ 25.00</div></div>
+    <div class="sum" style="margin-top:8px"><span>Subtotal</span><span>€ 89.00</span></div>
+    <div class="sum"><span>Shipping</span><span>Free</span></div>
+    <div class="total"><span>Total</span><span>€ 89.00</span></div>
+    <button class="pay">Place order · € 89.00</button>
+  </aside>
+</main>
+</body>
+</html>

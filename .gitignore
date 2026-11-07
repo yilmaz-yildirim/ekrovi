@@ -1,0 +1,7 @@
+# personal settings and captures stay local
+config.json
+captures/
+kayitlar/
+demo_captures/
+*.log
+__pycache__/
